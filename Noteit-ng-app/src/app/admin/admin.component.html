@@ -1,0 +1,9 @@
+<a *ngFor="let user of users" class="list-group-item list-group-item-action">
+  <td>ID:  {{user.id}}  ;</td>
+  <td>Username: {{user.username}}  ;</td>
+  <td>Email: {{user.email}}  ;</td>
+  <td>
+    <button><a (click)="delete(user)" class="btn btn-dark btn-sm">delete</a></button>
+  </td>
+</a>
+

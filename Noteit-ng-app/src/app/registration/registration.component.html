@@ -1,0 +1,82 @@
+<link href="//netdna.bootstrapcdn.com/bootstrap/3.1.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+<script src="//netdna.bootstrapcdn.com/bootstrap/3.1.0/js/bootstrap.min.js"></script>
+<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+<div class="container">
+  <div class="row centered-form">
+    <div class="col-xs-12 col-sm-8 col-md-4 col-sm-offset-2 col-md-offset-4">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          <h3 class="panel-title">Registration form</h3>
+        </div>
+        <div class="panel-body">
+          <form role="form" (ngSubmit)="registration()">
+            <div class="form-group">
+              <input type="text" name="username" id="username" [(ngModel)]="model.username" minlength="5"
+                     required="true" #username="ngModel" class="form-control input-sm" placeholder="username">
+              <div *ngIf="username.invalid && (username.dirty || username.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="username.errors.required">
+                  Username is required.
+                </div>
+                <div *ngIf="username.errors.minlength">
+                  Username must be at least 5 characters long.
+                </div>
+              </div>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" id="email" [(ngModel)]="model.email" minlength="5" required="true"
+                     #email="ngModel" class="form-control input-sm" placeholder="email">
+              <div *ngIf="email.invalid && (email.dirty || email.touched)"
+                   class="alert alert-danger">
+                <div *ngIf="email.errors.required">
+                  Email is required.
+                </div>
+                <div *ngIf="email.errors.minlength">
+                  Email must be at least 5 characters long and contain @ sign.
+                </div>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="password" name="password" id="password" [(ngModel)]="model.password" minlength="5"
+                         required="true" #password="ngModel" class="form-control input-sm" placeholder="password">
+                  <div *ngIf="password.invalid && (password.dirty || password.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="password.errors.required">
+                      Password is required.
+                    </div>
+                    <div *ngIf="password.errors.minlength">
+                      Password must be at least 5 characters long.
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-xs-6 col-sm-6 col-md-6">
+                <div class="form-group">
+                  <input type="password" name="password_confirmation" id="password_confirmation"
+                         [(ngModel)]="model.repeatPassword" #repeatPassword="ngModel" minlength="5" required="true"
+                         class="form-control input-sm" placeholder="confirm password">
+                  <div *ngIf="repeatPassword.invalid && (repeatPassword.dirty || repeatPassword.touched)"
+                       class="alert alert-danger">
+                    <div *ngIf="repeatPassword.errors.required">
+                      RepeatPassword is required.
+                    </div>
+                    <div *ngIf="repeatPassword.errors.minlength">
+                      RepeatPassword must be at least 5 characters long.
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <input type="submit" name="submit" value="submit" class="btn btn-info btn-block">
+            <br>
+            <div id="register-link" class="text-right">
+              <a routerLink="/login" class="text-info">Login</a>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
